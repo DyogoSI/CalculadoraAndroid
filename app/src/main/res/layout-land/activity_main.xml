@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="#121212"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:paddingEnd="8dp">
+
+        <TextView
+            android:id="@+id/textViewUltimaExpressaoID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textColor="#888888"
+            android:textSize="18sp"
+            android:paddingBottom="8dp" />
+
+        <TextView
+            android:id="@+id/textViewResultadoID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:textColor="#FFFFFF"
+            android:textSize="48sp"
+            android:paddingBottom="16dp" />
+    </LinearLayout>
+
+    <GridLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:columnCount="4"
+        android:rowCount="5"
+        android:alignmentMode="alignMargins"
+        android:useDefaultMargins="true">
+
+        <Button android:id="@+id/buttonResetID" android:text="C" />
+        <Button android:id="@+id/buttonDeleteID" android:text="D" />
+        <Button android:id="@+id/buttonPorcentoID" android:text="%" />
+        <Button android:id="@+id/buttonDivisaoID" android:text="÷" />
+
+        <Button android:id="@+id/buttonSeteID" android:text="7" />
+        <Button android:id="@+id/buttonOitoID" android:text="8" />
+        <Button android:id="@+id/buttonNoveID" android:text="9" />
+        <Button android:id="@+id/buttonMultiplicacaoID" android:text="×" />
+
+        <Button android:id="@+id/buttonQuatroID" android:text="4" />
+        <Button android:id="@+id/buttonCincoID" android:text="5" />
+        <Button android:id="@+id/buttonSeisID" android:text="6" />
+        <Button android:id="@+id/buttonSubtracaoID" android:text="-" />
+
+        <Button android:id="@+id/buttonUmID" android:text="1" />
+        <Button android:id="@+id/buttonDoisID" android:text="2" />
+        <Button android:id="@+id/buttonTresID" android:text="3" />
+        <Button android:id="@+id/buttonSomaID" android:text="+" />
+
+        <Button android:id="@+id/buttonZeroID" android:text="0" />
+        <Button android:id="@+id/buttonVirgulaID" android:text="," />
+        <Button android:id="@+id/buttonIgualID" android:text="=" />
+    </GridLayout>
+</LinearLayout>
