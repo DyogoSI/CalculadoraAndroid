@@ -52,14 +52,31 @@ public class MainActivity extends AppCompatActivity {
         buttonReset         = findViewById(R.id.buttonResetID);
         buttonIgual         = findViewById(R.id.buttonIgualID);
 
-        // Novo appendListener com verificação de "Erro"
+        // Listener com substituição de operador e limpeza do Erro
         View.OnClickListener appendListener = v -> {
             Button b = (Button) v;
+            String symbol = b.getText().toString();
             String current = textViewResultado.getText().toString();
+
+            // Limpa se estiver com "Erro"
             if (current.equals("Erro")) {
-                textViewResultado.setText("");
+                current = "";
             }
-            textViewResultado.append(b.getText());
+
+            // Substitui operador anterior se necessário
+            if (!current.isEmpty()) {
+                char lastChar = current.charAt(current.length() - 1);
+                boolean lastIsOperator = "+-×÷".indexOf(lastChar) != -1;
+                boolean newIsOperator = "+-×÷".contains(symbol);
+
+                if (lastIsOperator && newIsOperator) {
+                    current = current.substring(0, current.length() - 1) + symbol;
+                    textViewResultado.setText(current);
+                    return;
+                }
+            }
+
+            textViewResultado.setText(current + symbol);
         };
 
         buttonZero.setOnClickListener(appendListener);
@@ -83,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
             String current = textViewResultado.getText().toString();
             if (!current.isEmpty()) {
                 try {
-                    double value = Double.parseDouble(current);
+                    double value = Double.parseDouble(current.replace(",", "."));
                     value /= 100.0;
                     textViewResultado.setText(String.valueOf(value));
                 } catch (NumberFormatException e) {
